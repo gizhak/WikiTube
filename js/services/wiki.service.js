@@ -9,22 +9,16 @@ console.log('gCache on load:', gCache)
 console.log('localStorage data:', loadFromStorage(STORAGE_KEY))
 
 function searchVideos() {
-
-    // check if has data from cache and loaded
+    // check if has data from cache and loadeds
     if (gCache && gCache.length > 0) {
         console.log('Using cached data')
         return new Promise((resolve) => resolve(gCache))
 
     }
 
-
     const YT_KEY = `AIzaSyDbB2BXoN6FceBI4a1kPKGRo2HYY0-BV58`
-
     const value = '5'
-
-    const URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&videoEm
- beddable=true&type=video&key=${YT_KEY}&q=${value}`
-
+    const URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${YT_KEY}&q=${value}`
 
     console.log('Fetching new data')
 
@@ -51,3 +45,6 @@ function searchVideos() {
 
     })
 }
+
+
+

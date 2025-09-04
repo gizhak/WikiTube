@@ -54,6 +54,13 @@ main {
 
 }
 
+.video-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
 
 footer {
     /* background-color: hsl(39, 100%, 15%); */
