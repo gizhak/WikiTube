@@ -69,8 +69,22 @@ function renderWiki(description) {
 
 }
 
+
+
 function onSearchVideos() {
-    searchVideos()
+
+    const elInput = document.querySelector('.search-input')
+    console.log('Search input element:', elInput)
+
+    const value = elInput.value.trim()
+    console.log('Search value:', value)
+
+    if (!value) {
+        console.log('no search value')
+        return
+    }
+
+    searchVideos(value)
         .then(videos => {
             console.log('Search results:', videos)
             renderVideoList(videos)
