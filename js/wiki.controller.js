@@ -4,7 +4,7 @@
 
 function onInit() {
     console.log('WikiTube initialized')
-    // renderVideoList()
+    // renderVideoList(videos)
 }
 
 
@@ -29,6 +29,7 @@ function renderVideoList(videos) {
     elVideoList.innerHTML = strHtml.join('')
 
     renderVideoPlay(videos[4])
+    renderWiki(videos[4].description)
 
 }
 
@@ -54,14 +55,19 @@ function onVideoSelect(videoId) {
 
     const elVideoList = document.querySelector('.video-play p')
     console.log(elVideoList)
-    const strHtml = video.description
+    const strHtml = video.title
     elVideoList.innerHTML = strHtml
 
-
+    renderWiki(video.description)
 
 }
 
+function renderWiki(description) {
+    const elWiki = document.querySelector('.wiki p')
+    console.log(elWiki)
+    elWiki.innerHTML = description
 
+}
 
 function onSearchVideos() {
     searchVideos()
