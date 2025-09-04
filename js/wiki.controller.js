@@ -1,6 +1,6 @@
 'use strict'
 
-
+// https://www.youtube.com/watch?v=EK_LN3XEcnw 
 
 function onInit() {
     console.log('WikiTube initialized')
@@ -20,7 +20,7 @@ function renderVideoList(videos) {
     console.log(elVideoList)
 
     const strHtml = videos.map(video => `
-        <li class="video-item">
+        <li class="video-item" onclick="onVideoSelect('${video.id}')">
         <img src="${video.thumbnail}" alt="${video.title}">
             <h3>${video.title}</h3>
         </li>
@@ -28,7 +28,40 @@ function renderVideoList(videos) {
 
     elVideoList.innerHTML = strHtml.join('')
 
+    renderVideoPlay(videos[4])
+
 }
+
+function renderVideoPlay(video) {
+    console.log('Rendering video play section', video)
+
+    // console.log(document.querySelector('iframe'))
+
+    const elVideoPlay = document.querySelector('.video-play')
+    console.log(elVideoPlay)
+
+    const elIframe = elVideoPlay.querySelector('iframe')
+    elIframe.src = `https://www.youtube.com/embed/${video.id}`
+
+}
+
+function onVideoSelect(videoId) {
+    const video = gCache.find(video => video.id === videoId)
+    console.log('Selected video:', video)
+    if (video) {
+        renderVideoPlay(video)
+    }
+
+    const elVideoList = document.querySelector('.video-play p')
+    console.log(elVideoList)
+    const strHtml = video.description
+    elVideoList.innerHTML = strHtml
+
+
+
+}
+
+
 
 function onSearchVideos() {
     searchVideos()
