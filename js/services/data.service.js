@@ -1,3 +1,4 @@
+
 function getData(url, onSuccess) {
     const xhr = new XMLHttpRequest()
     xhr.onreadystatechange = () => {
