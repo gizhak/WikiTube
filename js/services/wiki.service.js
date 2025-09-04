@@ -1,12 +1,15 @@
 'use strict'
 
-const STORAGE_KEY = 'videoCache'
 
-const gCache = []
+
+const STORAGE_KEY = 'videoCache'
+const gCache = loadFromStorage(STORAGE_KEY) || []
+
+console.log('gCache on load:', gCache)
+console.log('localStorage data:', loadFromStorage(STORAGE_KEY))
 
 function searchVideos() {
 
-    // console.log('onGetReposData', gCache)
     // check if has data from cache and loaded
     if (gCache && gCache.length > 0) {
         console.log('Using cached data')
